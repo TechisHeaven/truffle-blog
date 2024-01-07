@@ -7,11 +7,11 @@ import Footer from "@/components/Footer/Footer";
 import { Theme } from "@radix-ui/themes";
 
 const inter = Inter({ subsets: ["latin"] });
-const merriWeather = Merriweather({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
+// const merriWeather = Merriweather({
+//   weight: "400",
+//   subsets: ["latin"],
+//   display: "swap",
+// });
 
 export const metadata: Metadata = {
   title: "Truffle",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${merriWeather.className} max-w-[1280px] m-auto`}>
+      <body className={`${inter.className} max-w-[1280px] m-auto`}>
         <Theme>
           <Header />
           <div className="relative">{children}</div>

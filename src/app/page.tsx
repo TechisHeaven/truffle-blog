@@ -31,6 +31,7 @@ export default function Home() {
           The latest industry news , interviews , technologies and resources.
         </p>
       </div>
+
       <FeaturedBlogs />
       <Card data={data} />
       <SubscribeToBlog />

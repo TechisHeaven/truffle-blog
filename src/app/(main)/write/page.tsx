@@ -102,9 +102,7 @@ const page = () => {
       <div className="banner border my-4">
         <DragDrop />
       </div>
-      <div className="content">
-        {loading ? <h1>Loading</h1> : <Article BlogData={blogData} />}
-      </div>
+      {loading ? <h1>Loading</h1> : <Article BlogData={blogData} />}
     </div>
   );
 };

@@ -2,10 +2,15 @@
 import { IoIosArrowUp } from "react-icons/io";
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const ToggleMenuAuth = () => {
   const [visible, setVisible] = useState(false);
-
+  //handle path name change to close dropdown
+  const pathname = usePathname();
+  React.useEffect(() => {
+    setVisible(false);
+  }, [pathname]);
   const notificationRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {

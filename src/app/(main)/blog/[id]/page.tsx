@@ -27,7 +27,7 @@ const page = () => {
           }
         />
       </div>
-      <div className="Description text-center max-w-[80%] m-auto">
+      <div className="Description my-4 text-center max-w-[80%] m-auto">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. At augue

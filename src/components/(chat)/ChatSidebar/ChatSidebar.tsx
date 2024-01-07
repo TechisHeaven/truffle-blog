@@ -4,6 +4,8 @@ import Link from "next/link";
 import React from "react";
 import { FiEdit2 } from "react-icons/fi";
 import { IoIosArrowUp } from "react-icons/io";
+import { FiSidebar } from "react-icons/fi";
+
 const ChatSidebar = () => {
   const conversation = [
     {
@@ -18,14 +20,25 @@ const ChatSidebar = () => {
     },
   ];
   const [visibleAllChats, setVisibleAllChats] = React.useState<Boolean>(true);
+  const [closeSideBar, setCloseSideBar] = React.useState<Boolean>(false);
   return (
-    <div className="sidebar max-w-[200px] w-full p-2 min-h-full max-h-[800px] h-[calc(100vh-100px)]">
+    <div
+      className={`sidebar flex flex-col items-start transition-all gap-2 max-w-[200px] w-full p-2 min-h-full max-h-[700px] h-[calc(100vh-100px)] ${
+        closeSideBar && "max-w-[60px]"
+      }`}
+    >
+      <button
+        onClick={() => setCloseSideBar(!closeSideBar)}
+        className="p-3 text-xl bg-black rounded-md text-white"
+      >
+        <FiSidebar />
+      </button>
       <div className="button w-full">
-        <button className="flex items-center gap-2 bg-black rounded-lg p-2 px-4 text-white text-sm">
+        <button className="flex items-center gap-2 bg-black rounded-lg p-3 text-white text-sm">
           <div className="text-lg">
             <FiEdit2 />
           </div>
-          New Message
+          {!closeSideBar && <p>New Message</p>}
         </button>
       </div>
       <div className="direct-message h-full">
@@ -33,7 +46,8 @@ const ChatSidebar = () => {
           onClick={() => setVisibleAllChats(!visibleAllChats)}
           className="font-medium text-sm my-4 p-2 hover:bg-gray-50 flex items-center gap-2 text-black cursor-pointer"
         >
-          All Conversation (20){" "}
+          {!closeSideBar && "All Conversation (20)"}
+
           <div
             className={`${
               visibleAllChats ? "rotate-180" : "rotate-0"
@@ -61,9 +75,11 @@ const ChatSidebar = () => {
                       alt={`user ${item.name} image`}
                     />
                   </div>
-                  <h1 className="truncate max-w-[100px] text-ellipsis overflow-hidden  w-full">
-                    {item.name}
-                  </h1>
+                  {!closeSideBar && (
+                    <h1 className="truncate max-w-[100px] text-ellipsis overflow-hidden  w-full">
+                      {item.name}
+                    </h1>
+                  )}
                 </Link>
               );
             })}

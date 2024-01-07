@@ -1,10 +1,17 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 import { IoIosNotifications } from "react-icons/io";
 
 const Notification = () => {
   const [visible, setVisible] = React.useState(false);
+  //handle path name change to close dropdown
+  const pathname = usePathname();
+  React.useEffect(() => {
+    setVisible(false);
+  }, [pathname]);
+
   const notification = [];
 
   const notificationRef = React.useRef<HTMLDivElement>(null);
