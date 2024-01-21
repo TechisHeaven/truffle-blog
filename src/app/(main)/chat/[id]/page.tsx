@@ -2,7 +2,7 @@
 import Chats from "@/components/(chat)/Chats/Chats";
 import ChatsManager from "@/managers/chats/chats.manager";
 import { ChatData } from "@/types/types.chat";
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { IoMdAdd } from "react-icons/io";
 // import socket from "@/app/api/websocket";
 const chats: ChatData[] = [
@@ -110,10 +110,10 @@ const chats: ChatData[] = [
 
 const page = () => {
   const socket = new WebSocket("ws://localhost:3001");
-  const [message, setMessage] = React.useState<string>("");
-  const messageRef = React.useRef<HTMLInputElement>(null);
+  const [message, setMessage] = useState<string>("");
+  const messageRef = useRef<HTMLInputElement>(null);
   const ChatsManagerInstance = new ChatsManager(chats);
-  React.useEffect(() => {
+  useEffect(() => {
     socket.onopen = (event) => {
       console.log("WebSocket Client Connected");
       // Upon connection, send an ID and a "hi" message
@@ -127,7 +127,7 @@ const page = () => {
     };
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("keydown", (event: KeyboardEvent) => {
       if (event.keyCode === 13) handleSubmit();
     });
