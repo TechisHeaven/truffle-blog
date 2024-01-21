@@ -22,7 +22,7 @@ const data = [
   },
 ];
 
-const page = () => {
+const Page = () => {
   const [blogs, setBlogs] = React.useState<{ imageUrl: string }[]>([]);
   const [pending, setTransition] = React.useTransition();
 
@@ -89,4 +89,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

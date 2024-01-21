@@ -44,7 +44,7 @@ interface ArticleProps {
   BlogData: string | null;
 }
 
-const page = () => {
+const Page = () => {
   const [blogData, setBlogData] = React.useState<string | null>(null);
   const [loading, setLoading] = React.useState<boolean | null>(false);
   // const loading = useStore((state) => state?.loading);
@@ -107,4 +107,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

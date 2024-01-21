@@ -51,7 +51,7 @@ const pricingPlanData: PricingData = {
     },
   ],
 };
-const page = () => {
+const Page = () => {
   const ActiveClass = "bg-black text-white";
   const NonActiveClass = "bg-white text-black";
   const [activeButton, setActiveButton] = React.useState<number>(0);
@@ -97,4 +97,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
