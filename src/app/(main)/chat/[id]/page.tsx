@@ -108,7 +108,7 @@ const chats: ChatData[] = [
   },
 ];
 
-const page = () => {
+const Chat = () => {
   const socket = new WebSocket("ws://localhost:3001");
   const [message, setMessage] = useState<string>("");
   const messageRef = useRef<HTMLInputElement>(null);
@@ -178,4 +178,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Chat;
